@@ -1,10 +1,8 @@
 <?php
 
-Route::group(['prefix' => 'api', 'middleware' => []], function () {
+Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     # V1
     Route::namespace('Core\Inventory\Controllers\API\V1')->prefix('v1')->name('api.v1.')->group(function () {
-        #*** Ex: START: Inventory ***#
-        // Route::apiResource('inventories', 'InventoryController');
-        #*** END: Inventory ***#
+        Route::apiResource('products', 'ProductController');
     });
 });
