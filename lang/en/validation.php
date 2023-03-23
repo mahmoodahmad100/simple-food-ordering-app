@@ -1,6 +1,6 @@
 <?php
 
-return [
+$array = [
 
     /*
     |--------------------------------------------------------------------------
@@ -182,3 +182,5 @@ return [
     'attributes' => [],
 
 ];
+
+return client_validation_response($array);
