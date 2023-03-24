@@ -1,6 +1,23 @@
 {
   "attributes": {
-
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text",
+      "definition": "nullable"
+    },
+    "qty": {
+      "type": "decimal"
+    },
+    "uom": {
+      "type": "string",
+      "definition": "default:kg"
+    },
+    "allow_alerting": {
+      "type": "boolean",
+      "definition": "default:true"
+    }
   },
   "relations": {
 

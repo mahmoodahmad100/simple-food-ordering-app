@@ -4,13 +4,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Dummy Name
+    | UOMs
     |--------------------------------------------------------------------------
     |
-    | This value is just a dummy value
+    | The unit of measurement available
     |
     */
 
-    'name' => 'Main Configuration file!',
+    'uom' => 'kg,g',
 
 ];
