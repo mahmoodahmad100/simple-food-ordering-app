@@ -1,0 +1,11 @@
+{
+  "attributes": {
+    "description": {
+      "type": "text",
+      "definition": "nullable"
+    }
+  },
+  "relations": {
+
+  }
+}

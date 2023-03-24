@@ -13,4 +13,12 @@ class Product extends Base
     {
         return $this->belongsToMany(Ingredient::class);
     }
+
+    /**
+     * get the items.
+     */
+    public function items()
+    {
+        return $this->hasMany(\Core\Sale\Models\Item::class, 'product_id');
+    }
 }

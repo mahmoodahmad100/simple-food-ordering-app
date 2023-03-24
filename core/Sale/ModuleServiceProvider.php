@@ -26,6 +26,6 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Models\Order::observe(Observers\OrderObserver::class);
     }
 }
