@@ -19,7 +19,7 @@ class ProductResource extends Resource
             'name'        => $this->name,
             'description' => $this->description,
             $this->mergeWhen($request->route()->getName() == 'api.v1.products.show', [
-
+                'ingredients' => IngredientResource::collection($this->ingredients),
             ])
         ];
     }

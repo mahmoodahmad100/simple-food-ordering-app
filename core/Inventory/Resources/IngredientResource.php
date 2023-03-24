@@ -22,7 +22,7 @@ class IngredientResource extends Resource
             'uom'            => $this->uom,
             'allow_alerting' => $this->allow_alerting,
             $this->mergeWhen($request->route()->getName() == 'api.v1.ingredients.show', [
-
+                'products' => ProductResource::collection($this->products),
             ])
         ];
     }
