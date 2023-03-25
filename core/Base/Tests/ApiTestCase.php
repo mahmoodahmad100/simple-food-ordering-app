@@ -5,7 +5,6 @@ namespace Core\Base\Tests;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
-// use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ApiTestCase extends TestCase
 {
@@ -72,8 +71,7 @@ class ApiTestCase extends TestCase
      */
     protected function getToken()
     {
-        $data = $this->getUserCredentials();
-        // return JWTAuth::fromUser($this->createUser());
+        $this->getUserCredentials();
         return 'dummy-token';
     }
 

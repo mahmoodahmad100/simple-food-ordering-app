@@ -50,7 +50,7 @@ trait SendResponse
             report($e);
         }
 
-        if (env('APP_DEBUG') == true) {
+        if (env('APP_DEBUG')) {
             $errors  = $e->getTrace();
             $message = $e->getMessage();
         }

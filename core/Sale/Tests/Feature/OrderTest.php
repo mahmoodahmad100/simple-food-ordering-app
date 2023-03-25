@@ -39,7 +39,28 @@ class OrderTest extends ApiTestCase
     {
         $product     = product::factory()->create();
         $ingredients = Ingredient::factory()->count(3)->create(['allow_alerting' => true]);
-        $product->ingredients()->syncWithPivotValues($ingredients->pluck('id'), ['qty' => 3]);
+        $product->ingredients()->syncWithPivotValues($ingredients->pluck('id'), ['qty' => 200]);
+        
+        $this->data['products'] = [
+            ['product_id' => $product->id, 'quantity' => 3]
+        ];
+
+        $this->json('POST', $this->base_url, $this->data, $this->getHeaders())
+             ->assertStatus(201)
+             ->assertJsonStructure($this->json);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return void
+     */
+    public function testItShouldStoreNewlyCreatedResourceThatExceedsTheIngredientsThreshold()
+    {
+        $product     = product::factory()->create();
+        $ingredients = Ingredient::factory()->count(3)->create(['allow_alerting' => true, 'uom' => 'kg', 'qty' => 5]);
+        
+        $product->ingredients()->syncWithPivotValues($ingredients->pluck('id'), ['qty' => 300, 'uom' => 'g']);
         
         $this->data['products'] = [
             ['product_id' => $product->id, 'quantity' => 10]
@@ -48,5 +69,9 @@ class OrderTest extends ApiTestCase
         $this->json('POST', $this->base_url, $this->data, $this->getHeaders())
              ->assertStatus(201)
              ->assertJsonStructure($this->json);
+
+        $ingredient = Ingredient::find($ingredients[0]->id);
+
+        $this->assertEquals(2, $ingredient->qty);
     }
 }

@@ -1,0 +1,30 @@
+
+sonar.projectKey=
+sonar.projectName=
+
+# Authentication token
+sonar.login=
+
+# defaults to 'not provided'
+sonar.projectVersion=1.0
+ 
+# Path is relative to the sonar-project.properties file. Defaults to .
+#sonar.sources=.
+ 
+# Encoding of the source code. Default is default system encoding
+sonar.sourceEncoding=UTF-8
+
+# Exclude all the directories that won't be analyzed
+sonar.exclusions=public/**, **/config/**, lang/**, core/**/Requests/**, **/*web.php, **/*api.php
+
+# Ignore Code Coverage
+sonar.coverage.exclusions=**/database/migrations/**, **/database/factories/**, **/Database/Migrations/**, **/Database/Factories/**, **/Database/Seeders/**, **/Database/Exports/**, **/*ModuleServiceProvider.php, core/Base/Traits/ServiceProvider/**,\
+                          resources/js/**, bootstrap/app.php, app/Providers/**, app/Http/Middleware/**, tests/CreatesApplication.php, app/Exceptions/**, server.php, webpack.mix.js, **/*.blade.php,\
+                          core/Base/Traits/Views/Variable.php, core/Base/Logging/**, core/Base/Traits/Response/SendResponse.php, core/Base/Middleware/**, core/Base/Traits/Model/Uuid.php,\
+                          core/**/Resources/**, database/seeders/DatabaseSeeder.php, routes/**\
+
+# Clover XML-format coverage report file/s
+sonar.php.coverage.reportPaths=clover.xml
+
+# Exclude duplications
+sonar.cpd.exclusions=**/Tests/Integration/**, **/Tests/Feature/**, **/Database/Migrations/**, **/Database/Exports/**

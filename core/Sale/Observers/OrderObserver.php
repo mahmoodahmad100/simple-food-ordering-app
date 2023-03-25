@@ -3,6 +3,7 @@
 namespace Core\Sale\Observers;
 
 use Core\Sale\Models\Order;
+use Core\Sale\Jobs\HandleNewOrder;
 
 class OrderObserver
 {
@@ -26,9 +27,7 @@ class OrderObserver
     
             $order->items()->createMany($items);
             
-            /**
-             * @todo update qty in the stock
-             */
+            HandleNewOrder::dispatch($order);
         }
     }
 

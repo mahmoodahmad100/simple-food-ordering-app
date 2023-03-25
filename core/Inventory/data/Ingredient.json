@@ -10,6 +10,9 @@
     "qty": {
       "type": "decimal"
     },
+    "original_qty": {
+      "type": "decimal"
+    },
     "uom": {
       "type": "string",
       "definition": "default:kg"

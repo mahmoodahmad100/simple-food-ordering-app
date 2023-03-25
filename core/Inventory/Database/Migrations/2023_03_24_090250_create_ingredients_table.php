@@ -18,6 +18,7 @@ class CreateIngredientsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('qty', 9, 2);
+            $table->decimal('original_qty', 9, 2);
             $table->string('uom')->default('kg');
             $table->boolean('allow_alerting')->default(true);
             $table->timestamps();

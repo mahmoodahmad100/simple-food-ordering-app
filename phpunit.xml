@@ -19,7 +19,32 @@
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./core</directory>
         </include>
+        <exclude>
+            <directory suffix=".blade.php">./</directory>
+            <directory suffix="web.php">./core</directory>
+            <directory suffix="api.php">./core</directory>
+            <directory suffix="ModuleServiceProvider.php">./core</directory>
+            <directory suffix="SendResponse.php">./core/Base/Traits/Response</directory>
+            <directory suffix="Uuid.php">./core/Base/Traits/Model</directory>
+            <directory>./routes/</directory>
+            <directory>./database/migrations/</directory>
+            <directory>./database/factories</directory>
+            <directory>./database/seeders</directory>
+            <directory>./core/*/Database/Migrations/</directory>
+            <directory>./core/*/Database/Factories</directory>
+            <directory>./core/*/Database/Seeders</directory>
+            <directory>./core/*/Database/Exports/</directory>
+            <directory>./core/Base/Traits/ServiceProvider</directory>
+            <directory>./core/Base/Logging</directory>
+            <directory>./core/Base/Middleware</directory>
+            <directory>./core/*/Requests</directory>
+            <directory>./core/*/Resources</directory>
+        </exclude>
+        <report>
+            <clover outputFile="clover.xml"/>
+        </report>
     </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
